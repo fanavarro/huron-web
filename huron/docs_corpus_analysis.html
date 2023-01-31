@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./favicon.ico">
+    <title>HURON</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>    <![endif]-->
+  </head>
+  <body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <!--<a class="navbar-brand" href="#">Home</a>--> </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false">Documentation
+                <span class="caret"></span></a>
+              
+              <ul class="dropdown-menu">
+                <li><a href="docs_lr.html">Lexical regularities</a></li>
+                <li><a href="docs_metrics.html">Metrics</a></li>
+                <li><a href="docs_best_practices.html">Best practices regarding human readable content in ontologies</a></li>
+                <li><a href="docs_corpus_analysis.html">Analysis of the corpus</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse --> </div>
+    </nav>
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>Analysis of the corpus</h1>
+      </div>
+      <div id="docs_corpus_analysis_div">
+        <p class="lead">
+          The analysis of the corpus of ontologies uses the values of the metrics obtained by each
+          input ontology to provide extra information about the metrics and the corpus of ontologies.
+        </p>
+        <p class="lead">
+          In particular, the distribution of each metric is calculated, which gives a global overview about the
+          behaviour of each metric in the corpus of ontologies.
+        </p>
+        <p class="lead">
+          Moreover, the correlation between the metrics is also calculated by using the Pearson coefficient. The results
+          are given in a heatmap in which not significant correlations are marked with a cross.
+        </p>
+        <p class="lead">
+          Finally, a clustering analysis is performed by using the Evaluome framework. This framework analyses each metric
+          separately to find the optimal number of groups of ontologies in which the ontology corpus can be splitted.
+          For this, evaluome performs a k-means based clustering of ontologies by using each metric separately as a unique feature.
+          Evaluome performs clusterings for a range of values of <i>f</i>, and returns the value of two statistical properties of
+          the clusterings, namely, stability and goodness. The stability measures the effect of small variations on the data,
+          and its values are in the range [0, 1], being the 1 the best result. The goodness measures how closely related
+          the instances in a category are, and how well-separated a category is from the rest of categories,
+          providing values in the range [-1, 1], being the 1 the best value. Given a value of <i>k</i>, the method requires
+          at least <i>k</i> different values for the metric used for the clustering to be able to provide a result.
+          This method suggests the optimal number of ontology clusters (<i>k</i>)
+          for each metric by analyzing the values of stability and goodness.
+        </p>
+      </div>
+
+      <div class="page-header">
+        <h1>Bibliography</h1>
+        <ul>
+          <li>Bernabé-Díaz, J. A., Franco, M., Vivo, J. M., Quesada-Martínez, M., & Fernández-Breis, J. T. (2022). An automated process for supporting decisions in clustering-based data analysis. <i>Computer Methods and Programs in Biomedicine</i>, 219, 106765.</li>
+          <li>Bernabé-Díaz, J. A., Franco-Nicolás, M., Vivo-Molina, J. M., Quesada-Martínez, M., Duque-Ramos, A., & Fernandez-Breis, J. T. (2020). An Automated Process for the Repository-Based Analysis of Ontology Structural Metrics. <i>IEEE Access</i>, 8, 148722-148743.</li>
+        </ul>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">@2022 - Universidad de Murcia</p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./js/docs_metrics_controller.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
