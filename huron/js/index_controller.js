@@ -1,6 +1,10 @@
 /* WS URLs */
-const WS_CALCULATE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/calculateMetricsEmail"
-const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics"
+//const WS_CALCULATE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/calculateMetricsEmail"
+//const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics"
+
+const WS_CALCULATE_METRICS = "http://localhost:8000/calculateMetricsEmail"
+const WS_GET_AVAILABLE_METRICS = "http://localhost:8000/getAvailableMetrics"
+
 
 /* Loading button functionalidty */
 
@@ -135,9 +139,11 @@ function calculate () {
 
 function createMetricEntry (metric) {
 	var name = metric.name;
+	var iri = metric.iri;
 	var shortDescription = metric.shortDescription;
 	var longDescription = metric.longDescription;
-	var entry = `<label title="${shortDescription}"><input type="checkbox" name="metric_selector" value="${name}" >${name}</label><br />`;
+	var hooverText = shortDescription !== "" ? shortDescription : longDescription;
+	var entry = `<label title="${hooverText}"><input type="checkbox" name="metric_selector" value="${iri}" >${name}</label><br />`;
 	return entry;
 }
 
