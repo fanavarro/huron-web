@@ -1,5 +1,5 @@
 /* WS URLs */
-const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics"
+const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics";
 // const WS_GET_AVAILABLE_METRICS = "http://localhost:8000/getAvailableMetrics"
 
 
@@ -24,7 +24,7 @@ function createMetricDiv (metric) {
 
 function removeChildren(component) {
 	while (component.firstChild) {
-		component.firstChild.remove()
+		component.firstChild.remove();
 	}
 }
 
@@ -43,7 +43,7 @@ $.ajax({
 	context: document.body,
 	cache:  false,   
 	success: function(data) {
-		var docsMetricsDiv = document.getElementById("docs_metrics_div")
+		var docsMetricsDiv = document.getElementById("docs_metrics_div");
 		reGenerateDocsMetricsDiv(docsMetricsDiv, data.metricDescriptionList);
 	},
 	error: function (request, status, error) {
