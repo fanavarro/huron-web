@@ -9,11 +9,11 @@ function createMetricDiv (metric) {
 	var shortDescription = metric.shortDescription;
 	var longDescription = metric.longDescription;
 
-	const title = document.createElement("h2");
+	const title = document.createElement("h3");
 	title.appendChild(document.createTextNode(name));
 
-	const paragraph = document.createElement("p");
-	paragraph.classList.add('lead')
+	const paragraph = document.createElement("div");
+	//paragraph.classList.add('lead')
 	paragraph.appendChild(document.createTextNode(longDescription));
 
 	const metricDiv = document.createElement("div");
