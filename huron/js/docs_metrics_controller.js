@@ -1,6 +1,7 @@
+const REST_ENDPOINT = "https://semantics.inf.um.es:8443/huron-ws";
 /* WS URLs */
-const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics";
-// const WS_GET_AVAILABLE_METRICS = "http://localhost:8000/getAvailableMetrics"
+// const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics";
+const WS_GET_AVAILABLE_METRICS = REST_ENDPOINT + "/getAvailableMetrics"
 
 
 

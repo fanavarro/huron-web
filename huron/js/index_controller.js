@@ -1,9 +1,10 @@
+const REST_ENDPOINT = "https://semantics.inf.um.es:8443/huron-ws";
 /* WS URLs */
-const WS_CALCULATE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/calculateMetricsEmail"
-const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics"
+// const WS_CALCULATE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/calculateMetricsEmail"
+// const WS_GET_AVAILABLE_METRICS = "http://semantics.inf.um.es:8080/huron-ws/getAvailableMetrics"
 
-// const WS_CALCULATE_METRICS = "http://localhost:8000/calculateMetricsEmail"
-// const WS_GET_AVAILABLE_METRICS = "http://localhost:8000/getAvailableMetrics"
+const WS_CALCULATE_METRICS = REST_ENDPOINT + "/calculateMetricsEmail"
+const WS_GET_AVAILABLE_METRICS =  REST_ENDPOINT + "/getAvailableMetrics"
 
 
 /* Loading button functionalidty */
@@ -68,14 +69,24 @@ function parseSelectedMetrics (checkboxes) {
 	return selectedMetrics;
 }
 
-function parsePerformAnalysis (radioButtons) {
-	var performAnalysis = false;
+function parseBooleanRadioButtons (radioButtons) {
+	var value = false;
 	for (var radioButton of radioButtons) {
 		if (radioButton.checked) {
-			performAnalysis = radioButton.value === 'true';
+			value = radioButton.value === 'true';
 		}
 	}
-	return performAnalysis;
+	return value;
+}
+
+function parseMultiRadioButtons (radioButtons) {
+	var selectedValue = '';
+	for (var radioButton of radioButtons) {
+		if (radioButton.checked) {
+			selectedValue = radioButton.value;
+		}
+	}
+	return selectedValue;
 }
 
 
@@ -107,10 +118,12 @@ function calculate () {
 		return false;
 	}
 	
-	var performAnalysis = parsePerformAnalysis(document.getElementsByName("perform_analysis"));
+	var includeImports = parseBooleanRadioButtons(document.getElementsByName("include_imports"));
+	var outputFormat = parseMultiRadioButtons(document.getElementsByName("output_format"));
+	var performAnalysis = parseBooleanRadioButtons(document.getElementsByName("perform_analysis"));
 	
 	// Create the input
-	var input = {'email': userEmail, 'ontologies': ontologyList, 'metrics': selectedMetrics, 'performAnalysis': performAnalysis};
+	var input = {'email': userEmail, 'ontologies': ontologyList, 'metrics': selectedMetrics, 'includeImports': includeImports, 'outputFormat': outputFormat, 'performAnalysis': performAnalysis};
 
 	$.ajax({
 		url: WS_CALCULATE_METRICS,

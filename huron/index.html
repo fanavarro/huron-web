@@ -148,16 +148,49 @@
           <fieldset id="fieldset_metric_selector">      
           </fieldset>
           <br><br>
+          <label for="include_imports_fieldset">Include ontology imports?</label> <br>
+          <fieldset id="include_imports_fieldset">
+            <label>
+            <input type="radio" name="include_imports" value="true">Yes</input>
+            </label>
+            <br>
+            <label>
+            <input type="radio" name="include_imports" value="false" checked>No</input>
+            </label>
+          </fieldset>
+          <br><br>
+          <label for="output_format_fieldset">Output format</label> <br>
+          <fieldset id="output_format_fieldset">
+            <label>
+            <input type="radio" name="output_format" value="wide_table">Wide table</input>
+            </label>
+            <br>
+            <label>
+            <input type="radio" name="output_format" value="long_table" checked>Long table</input>
+            </label>
+            <br>
+            <label>
+            <input type="radio" name="output_format" value="detailed_rdf" checked>Detailed RDF</input>
+            </label>
+            <br>
+            <label>
+            <input type="radio" name="output_format" value="summary_rdf" checked>Summary RDF</input>
+            </label>
+          </fieldset>
+          
+          <br><br>
           <label for="analysis_fieldset">Perform analysis of the corpus?</label> <br>
           <fieldset id="analysis_fieldset">
             <!-- <legend>Perform analysis of the corpus?</legend> -->
             <label>
             <input type="radio" name="perform_analysis" value="true">Yes</input>
             </label>
+            <br>
             <label>
             <input type="radio" name="perform_analysis" value="false" checked>No</input>
             </label>
           </fieldset>
+          
           <button id="buttonStep1" class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-refresh fast-right-spinner"></span>
           <span id="buttonStep1Text">Run execution</span></button>
           <div id="alertStep1Collapse" class="collapse">
